@@ -566,7 +566,7 @@ body::before {
 .membros { list-style: none; margin: 0; padding: 0; }
 .membro {
     display: grid;
-    grid-template-columns: 104px 1fr;
+    grid-template-columns: 124px 1fr;
     gap: 16px;
     align-items: start;
     padding: 18px 0;
@@ -575,7 +575,7 @@ body::before {
 
 .membro-foto {
     display: block;
-    width: 104px;
+    width: 124px;
     height: auto;
     aspect-ratio: 1;
     object-fit: cover;
@@ -608,8 +608,8 @@ body::before {
 .membro-descricao { margin: 0; font-size: 14.5px; line-height: 1.45; }
 
 @media (max-width: 380px) {
-    .membro { grid-template-columns: 86px 1fr; gap: 12px; }
-    .membro-foto { width: 86px; border-width: 5px; border-bottom-width: 14px; }
+    .membro { grid-template-columns: 104px 1fr; gap: 12px; }
+    .membro-foto { width: 104px; border-width: 5px; border-bottom-width: 14px; }
     .membro-apelido { font-size: 28px; }
 }
 

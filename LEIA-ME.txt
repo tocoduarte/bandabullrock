@@ -45,13 +45,22 @@ DOMÍNIO bandabullrock.com.br (no registro.br, editando a zona DNS)
   domains, para ninguém mais conseguir usá-lo no GitHub.
 
 FOTOS DOS INTEGRANTES
-As fotos atuais são provisórias. Substitua os arquivos em images/integrantes/
+As fotos já estão recortadas e com tratamento padronizado. Para trocar,
+substitua os arquivos em images/integrantes/
 mantendo exatamente os nomes: bimba.jpg, du.jpg, geleia.jpg, mapola.jpg, toco.jpg.
 Ideal: foto quadrada, cerca de 600x600 px, até ~150 KB, rosto centralizado
 (a imagem é recortada em quadrado automaticamente).
+Ao trocar uma foto, aumente o ?v= dela no index.html para o cache atualizar.
+Ao trocar uma foto, aumente o ?v= dela no index.html para o cache atualizar.
 Nomes, funções e descrições ficam no index.html, no bloco "Integrantes".
 O endereço .../#integrantes abre a lista direto (é o que o botão de
 compartilhar envia).
+
+VERSÃO DOS ARQUIVOS (cache)
+O GitHub Pages deixa CSS e JS em cache nos celulares por alguns minutos.
+Por isso o index.html carrega css/bullrock.css?v=8 e js/bullrock.js?v=8.
+Sempre que alterar o CSS ou o JS, aumente esse número (v=9, v=10...)
+para todos receberem a versão nova na hora.
 
 AO ATIVAR O DOMÍNIO
 No index.html, troque https://tocoduarte.github.io/bandabullrock/ por

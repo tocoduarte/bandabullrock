@@ -222,7 +222,7 @@
         qrLib = new Promise(function (resolve, reject) {
             if (window.qrcode) { resolve(); return; }
             var s = document.createElement('script');
-            s.src = 'js/vendor/qrcode.min.js';
+            s.src = 'js/vendor/qrcode.min.js?v=8';
             s.onload = function () { resolve(); };
             s.onerror = function () { qrLib = null; reject(new Error('qr')); };
             document.head.appendChild(s);

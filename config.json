@@ -2,12 +2,12 @@
   "_ajuda": "Datas no formato dd/mm/aaaa (inicio e fim inclusivos, horario de Brasilia). Pix: use url OU copiaECola OU chave+favorecido+cidade. Valor vazio = a pessoa escolhe. Detalhes no LEIA-ME.txt.",
 
   "pixPeriodos": [
-    { "inicio": "04/10/2026", "fim": "10/10/2026" }
+    { "inicio": "05/10/2026", "fim": "31/12/2026" }
   ],
 
   "pix": {
     "url": "",
-    "copiaECola": "00020126920014BR.GOV.BCB.PIX0136f924e9b4-96b1-41d5-b8e0-37cdc3f256430230Obrigado por apoiar a BullRock5204000053039865802BR5912Andre Duarte6009SAO PAULO62140510OuGfLR0nko630428A2",
+    "copiaECola": "00020126960014BR.GOV.BCB.PIX01364699f16a-b3fc-4537-b71c-cce013e80b710234Obrigado por contribuir. Bull Rock5204000053039865802BR5924Eduardo Cassinelli Filho6009SAO PAULO621405104nRJbSeNgv6304C21E",
     "chave": "",
     "favorecido": "",
     "cidade": "",

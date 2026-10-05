@@ -173,15 +173,19 @@
             <svg class="ico" aria-hidden="true"><use href="#i-fechar" /></svg>
         </button>
         <svg class="pix-coracao" aria-hidden="true"><use href="#i-coracao" /></svg>
-        <h2 id="pixTitulo">Valeu pela força!</h2>
+        <h2 id="pixTitulo" tabindex="-1" autofocus>Valeu pela força!</h2>
         <div class="js-modo-codigo">
-            <p class="pix-instrucao">Copie o código, abra o app do seu banco e escolha <strong>Pix Copia e Cola</strong>.</p>
+            <figure class="pix-qr">
+                <div class="pix-qr-img js-pix-qr" role="img" aria-label="QR Code do Pix da BullRock"></div>
+                <figcaption>Escaneie com o app do seu banco</figcaption>
+            </figure>
+            <p class="pix-instrucao">Ou copie o código e cole em <strong>Pix Copia e Cola</strong> no app do banco.</p>
             <p class="pix-valor js-pix-valor" hidden></p>
-            <p class="pix-favorecido js-pix-favorecido" hidden></p>
             <button type="button" class="pix-copiar js-copiar js-pix-codigo" data-msg="Código Pix copiado. Agora cole no app do banco.">
                 <svg class="ico" aria-hidden="true"><use href="#i-copiar" /></svg>
                 <span>Copiar código Pix</span>
             </button>
+            <p class="pix-favorecido js-pix-favorecido" hidden></p>
             <p class="pix-alternativa js-pix-alternativa" hidden>
                 Prefere usar a chave?
                 <button type="button" class="pix-link js-copiar js-pix-chave" data-msg="Chave Pix copiada">Copiar chave Pix</button>
@@ -191,11 +195,11 @@
             <p class="pix-instrucao">Copie a chave abaixo e faça o Pix pelo app do seu banco.</p>
             <p class="pix-rotulo">Chave Pix</p>
             <p class="pix-chave js-pix-chave-texto"></p>
-            <p class="pix-favorecido js-pix-favorecido" hidden></p>
             <button type="button" class="pix-copiar js-copiar js-pix-chave" data-msg="Chave Pix copiada">
                 <svg class="ico" aria-hidden="true"><use href="#i-copiar" /></svg>
                 <span>Copiar chave Pix</span>
             </button>
+            <p class="pix-favorecido js-pix-favorecido" hidden></p>
         </div>
     </div>
 </dialog>

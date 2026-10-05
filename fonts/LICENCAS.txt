@@ -1,2 +1,4 @@
 Staatliches e Special Elite: SIL Open Font License 1.1 (via Fontsource).
 Ícones: WhatsApp e Instagram de Simple Icons (CC0); demais de Lucide (ISC).
+
+QR Code Generator (js/vendor/qrcode.min.js): Kazuhiko Arase, MIT License.

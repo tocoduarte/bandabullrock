@@ -413,17 +413,20 @@ body::before {
 .aviso.visivel { opacity: 1; transform: translate(-50%, 0); }
 
 /* ---------------------------------------------------------
-   Diálogo PIX (quando não há link de pagamento)
+   Diálogo PIX
    --------------------------------------------------------- */
 .pix-dialogo {
-    width: min(92vw, 400px);
+    width: min(94vw, 430px);
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
     padding: 0;
     border: 0;
     background: transparent;
     color: var(--tinta);
-    overflow: visible;
+    overflow-y: auto;
+    overscroll-behavior: contain;
 }
-.pix-dialogo::backdrop { background: rgba(0, 0, 0, .75); }
+.pix-dialogo::backdrop { background: rgba(0, 0, 0, .82); }
 .pix-dialogo.sem-suporte {
     position: fixed;
     top: 50%;
@@ -436,44 +439,48 @@ body::before {
 
 .pix-papel {
     position: relative;
-    padding: 34px 26px 28px;
+    padding: 42px 30px 44px;
     text-align: center;
-    background: url("../images/papel-bege.webp") center / 100% 100% no-repeat;
+    background: url("../images/papel-cartaz.webp") center / 100% 100% no-repeat;
 }
 .pix-papel h2 {
-    margin: 6px 0 8px;
-    font: 400 30px/1 var(--f-titulo);
+    margin: 4px 0 16px;
+    font: 400 34px/1 var(--f-titulo);
     letter-spacing: .03em;
     text-transform: uppercase;
 }
-.pix-coracao { width: 34px; height: 34px; color: var(--vermelho); }
-.pix-instrucao { margin: 0 0 16px; font-size: 14px; line-height: 1.4; }
-.pix-rotulo { margin: 0; font: 400 15px/1 var(--f-titulo); letter-spacing: .12em; text-transform: uppercase; opacity: .7; }
-.pix-chave { margin: 6px 0 4px; font-size: 17px; word-break: break-all; }
-.pix-favorecido { margin: 0 0 4px; font-size: 13px; opacity: .8; }
-.pix-instrucao strong { font-weight: 400; text-decoration: underline; text-decoration-color: var(--vermelho); text-underline-offset: 3px; }
-.pix-valor { margin: 0 0 4px; font: 400 34px/1 var(--f-titulo); color: var(--sangue); }
-.pix-alternativa { margin: 16px 0 0; font-size: 13px; }
-.pix-link {
-    padding: 6px 2px;
-    font: inherit;
-    color: var(--sangue);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    background: none;
-    border: 0;
-    cursor: pointer;
+.pix-papel h2:focus { outline: none; }
+.pix-coracao { width: 36px; height: 36px; color: var(--vermelho); }
+
+.pix-qr { margin: 0 0 16px; }
+.pix-qr-img {
+    width: 196px;
+    height: 196px;
+    margin: 0 auto;
+    padding: 4px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 0 2px rgba(31, 18, 12, .55), 0 6px 14px rgba(0, 0, 0, .25);
 }
-.pix-link:focus-visible { outline: 3px solid #ffb347; outline-offset: 2px; }
+.pix-qr-img svg { display: block; width: 100%; height: 100%; }
+.pix-qr figcaption { margin-top: 10px; font-size: 15px; }
+
+.pix-instrucao { margin: 0 0 4px; font-size: 16px; line-height: 1.45; }
+.pix-instrucao strong { font-weight: 400; text-decoration: underline; text-decoration-color: var(--vermelho); text-underline-offset: 3px; }
+.pix-valor { margin: 8px 0 0; font: 400 36px/1 var(--f-titulo); color: var(--sangue); }
+.pix-rotulo { margin: 0; font: 400 16px/1 var(--f-titulo); letter-spacing: .12em; text-transform: uppercase; opacity: .75; }
+.pix-chave { margin: 6px 0 4px; font-size: 18px; word-break: break-all; }
+.pix-favorecido { margin: 14px 0 0; font-size: 15px; }
 
 .pix-copiar {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
-    min-height: 50px;
+    min-height: 58px;
     margin-top: 14px;
-    padding: 0 22px;
-    font: 400 21px/1 var(--f-titulo);
+    padding: 0 28px;
+    font: 400 23px/1 var(--f-titulo);
     letter-spacing: .05em;
     text-transform: uppercase;
     color: var(--bege);
@@ -481,19 +488,41 @@ body::before {
     border: 0;
     cursor: pointer;
 }
-.pix-fechar {
-    position: absolute;
-    top: 12px;
-    right: 14px;
-    width: 40px;
-    height: 40px;
-    display: grid;
-    place-items: center;
-    font-size: 20px;
-    color: var(--tinta);
+.pix-alternativa { margin: 18px 0 0; font-size: 15px; line-height: 1.5; }
+.pix-link {
+    padding: 8px 4px;
+    font: inherit;
+    color: var(--sangue);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
     background: none;
     border: 0;
     cursor: pointer;
+}
+.pix-link:focus-visible { outline: 3px solid #ffb347; outline-offset: 2px; }
+
+.pix-fechar {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+    color: var(--tinta);
+    background: rgba(31, 18, 12, .1);
+    border: 2px solid rgba(31, 18, 12, .45);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.pix-fechar:active { transform: scale(.94); }
+
+@media (max-height: 700px) {
+    .pix-papel { padding-top: 34px; padding-bottom: 36px; }
+    .pix-qr-img { width: 160px; height: 160px; }
+    .pix-papel h2 { font-size: 30px; margin-bottom: 12px; }
 }
 
 /* ---------------------------------------------------------

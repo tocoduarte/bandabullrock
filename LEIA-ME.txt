@@ -11,6 +11,8 @@ Só o arquivo config.json. O index.html não precisa ser tocado.
     copiaECola ..... código "Pix Copia e Cola" gerado no app do banco
     chave + favorecido + cidade ... o site gera o Copia e Cola
                      (valor vazio = a pessoa escolhe; ex.: "25,00" fixa o valor)
+  O QR Code da janela do Pix é gerado no navegador a partir do código
+  configurado: trocou o código, o QR acompanha sozinho.
   Sem nada preenchido, o botão não aparece, mesmo dentro das datas.
   Código Copia e Cola com erro de digitação (CRC inválido) também esconde o botão.
 - lojaUrl: endereço da loja (https://...). Vazio = "Em breve".

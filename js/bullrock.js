@@ -210,10 +210,46 @@
 
     function urlValida(u) { return typeof u === 'string' && /^https:\/\//i.test(u.trim()); }
 
+    /* ---------------- QR Code (gerado no navegador a partir do codigo) ---------------- */
+
+    var qrCodigo = '';
+    var qrDesenhado = false;
+    var qrLib = null;
+
+    function carregarLibQr() {
+        if (qrLib) { return qrLib; }
+        qrLib = new Promise(function (resolve, reject) {
+            if (window.qrcode) { resolve(); return; }
+            var s = document.createElement('script');
+            s.src = 'js/vendor/qrcode.min.js';
+            s.onload = function () { resolve(); };
+            s.onerror = function () { qrLib = null; reject(new Error('qr')); };
+            document.head.appendChild(s);
+        });
+        return qrLib;
+    }
+
+    function desenharQr() {
+        if (!qrCodigo || qrDesenhado || !dialogo) { return; }
+        var alvo = dialogo.querySelector('.js-pix-qr');
+        var figura = alvo ? alvo.parentNode : null;
+        carregarLibQr().then(function () {
+            var qr = window.qrcode(0, 'M');
+            qr.addData(qrCodigo, 'Byte');
+            qr.make();
+            alvo.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 16, scalable: true });
+            qrDesenhado = true;
+        }).catch(function () {
+            // sem QR: o botao de copiar continua funcionando
+            if (figura) { figura.hidden = true; }
+        });
+    }
+
     /* ---------------- janela do Pix ---------------- */
 
     function abrirPix() {
         if (!dialogo) { return; }
+        desenharQr();
         if (typeof dialogo.showModal === 'function') { dialogo.showModal(); }
         else { dialogo.setAttribute('open', ''); dialogo.classList.add('sem-suporte'); }
     }
@@ -247,6 +283,8 @@
             modoCodigo.hidden = false;
             modoChave.hidden = true;
             modoCodigo.querySelector('.js-pix-codigo').setAttribute('data-copiar', codigo);
+            qrCodigo = codigo;
+            qrDesenhado = false;
             var v = parseFloat(campo(codigo, '54'));
             mostrar(modoCodigo.querySelector('.js-pix-valor'),
                 v > 0 ? v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : '');
@@ -308,6 +346,7 @@
         ligarShare(bloco);
 
         if (!url && location.hash === '#apoie') { abrirPix(); }
+        else if (qrCodigo) { setTimeout(function () { carregarLibQr().catch(function () {}); }, 1500); }
     }
 
     function carregarConfig() {

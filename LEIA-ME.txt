@@ -42,6 +42,12 @@ DOMÍNIO bandabullrock.com.br (no registro.br, editando a zona DNS)
 - Recomendado: verificar o domínio em Settings da conta > Pages > Verified
   domains, para ninguém mais conseguir usá-lo no GitHub.
 
+AO ATIVAR O DOMÍNIO
+No index.html, troque https://tocoduarte.github.io/bandabullrock/ por
+https://bandabullrock.com.br/ nas linhas canonical, og:url e og:image
+(há um comentário marcando o lugar). Os botões de compartilhar já usam o
+endereço atual sozinhos.
+
 ALTERAR DATAS OU PIX
 Abra o config.json no github.com (funciona no navegador do celular), toque
 no lápis, edite e clique em "Commit changes". O site atualiza em 1 a 2 minutos.

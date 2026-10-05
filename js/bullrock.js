@@ -65,6 +65,13 @@
         return copiarComoFallback(dados);
     }
 
+    // "@pagina" = endereco atual do site (funciona no github.io e no dominio)
+    function resolverUrl(u) {
+        var base = location.origin + location.pathname;
+        if (!u) { return base; }
+        return u.indexOf('@pagina') === 0 ? base + u.substring(7) : u;
+    }
+
     function ligarShare(raiz) {
         each(raiz.querySelectorAll('.js-share'), function (btn) {
             btn.addEventListener('click', function (ev) {
@@ -74,7 +81,7 @@
                 compartilhar({
                     title: btn.getAttribute('data-share-title') || document.title,
                     text: btn.getAttribute('data-share-text') || '',
-                    url: btn.getAttribute('data-share-url') || location.href
+                    url: resolverUrl(btn.getAttribute('data-share-url'))
                 });
             });
         });

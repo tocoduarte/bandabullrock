@@ -305,7 +305,7 @@
 
     function carregarConfig() {
         if (!window.fetch) { return; }
-        fetch('/config.json', { cache: 'no-store' })
+        fetch('config.json', { cache: 'no-store' })
             .then(function (r) { return r.ok ? r.json() : null; })
             .then(function (cfg) {
                 if (!cfg) { return; }

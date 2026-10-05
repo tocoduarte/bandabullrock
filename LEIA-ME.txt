@@ -21,10 +21,12 @@ continua funcionando normalmente, apenas sem o Pix.
 PUBLICAÇÃO NO GITHUB PAGES (uma vez só)
 1. Crie uma conta gratuita em github.com.
 2. Crie um repositório PÚBLICO (ex.: bullrock-site) e envie todos estes
-   arquivos para a raiz, inclusive CNAME e .nojekyll
+   arquivos para a raiz, inclusive .nojekyll
    (botão "Add file" > "Upload files", arrastando o conteúdo do ZIP).
 3. Settings > Pages > Source: "Deploy from a branch" > branch main, pasta / (root).
-4. Settings > Pages > Custom domain: bandabullrock.com.br.
+   O site fica em https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/ para testes.
+4. Para usar o domínio: Settings > Pages > Custom domain: bandabullrock.com.br
+   (o GitHub cria o arquivo CNAME sozinho).
    Depois que o certificado for emitido, marque "Enforce HTTPS".
 
 DOMÍNIO bandabullrock.com.br (no registro.br, editando a zona DNS)

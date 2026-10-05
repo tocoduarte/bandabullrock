@@ -450,7 +450,7 @@ body::before {
     text-transform: uppercase;
 }
 .pix-papel h2:focus { outline: none; }
-.pix-coracao { width: 36px; height: 36px; color: var(--vermelho); }
+.pix-coracao { width: 40px; height: 40px; color: var(--vermelho); }
 
 .pix-qr { margin: 0 0 16px; }
 .pix-qr-img {
@@ -526,6 +526,94 @@ body::before {
 }
 
 /* ---------------------------------------------------------
+   Integrantes
+   --------------------------------------------------------- */
+.dialogo--integrantes {
+    width: min(94vw, 460px);
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--tinta);
+    overflow: visible;
+}
+.dialogo--integrantes::backdrop { background: rgba(0, 0, 0, .82); }
+.dialogo--integrantes.sem-suporte {
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 60; display: block;
+}
+.dialogo--integrantes:not([open]) { display: none; }
+.dialogo--integrantes .pix-fechar { z-index: 2; }
+
+.integrantes-papel {
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 42px 26px 34px;
+    background: url("../images/papel-cartaz.webp") center / 100% 100% no-repeat;
+}
+.integrantes-papel h2 {
+    margin: 4px 60px 8px;
+    text-align: center;
+    font: 400 36px/1 var(--f-titulo);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+.integrantes-papel h2:focus { outline: none; }
+.integrantes-intro { margin: 0 0 10px; text-align: center; font-size: 15px; line-height: 1.4; }
+
+.membros { list-style: none; margin: 0; padding: 0; }
+.membro {
+    display: grid;
+    grid-template-columns: 104px 1fr;
+    gap: 16px;
+    align-items: start;
+    padding: 18px 0;
+}
+.membro + .membro { border-top: 2px dashed rgba(31, 18, 12, .28); }
+
+.membro-foto {
+    display: block;
+    width: 104px;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 6px solid #f6eedb;
+    border-bottom-width: 18px;
+    background: #2a0405;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .35);
+    transform: rotate(-2.5deg);
+}
+.membro:nth-child(even) .membro-foto { transform: rotate(2deg); }
+
+.membro-apelido {
+    margin: 0;
+    font: 400 32px/1 var(--f-titulo);
+    letter-spacing: .03em;
+    text-transform: uppercase;
+}
+.membro-nome { margin: 2px 0 8px; font-size: 13px; opacity: .78; }
+.membro-funcao {
+    display: inline-block;
+    margin: 0 0 8px;
+    padding: 4px 10px 3px;
+    font: 400 15px/1 var(--f-titulo);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--bege);
+    background: var(--sangue);
+    transform: rotate(-1deg);
+}
+.membro-descricao { margin: 0; font-size: 14.5px; line-height: 1.45; }
+
+@media (max-width: 380px) {
+    .membro { grid-template-columns: 86px 1fr; gap: 12px; }
+    .membro-foto { width: 86px; border-width: 5px; border-bottom-width: 14px; }
+    .membro-apelido { font-size: 28px; }
+}
+
+/* ---------------------------------------------------------
    Acessibilidade de movimento
    --------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
@@ -550,3 +638,6 @@ body::before {
 }
 [hidden] { display: none !important; }
 @media (prefers-reduced-motion: reduce) { .acao--surge { animation: none; } }
+
+/* botão fechar dos Integrantes flutua sobre o texto ao rolar: fundo opaco */
+.dialogo--integrantes .pix-fechar { background: rgba(236, 224, 196, .96); box-shadow: 0 2px 8px rgba(0, 0, 0, .2); }

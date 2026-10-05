@@ -18,7 +18,8 @@
     function avisar(texto) {
         if (!avisoEl) { return; }
         // Com a janela do PIX aberta, o aviso fica dentro dela (camada superior)
-        var destino = (dialogo && dialogo.hasAttribute('open')) ? dialogo : document.body;
+        var aberto = document.querySelector('dialog[open]');
+        var destino = aberto || document.body;
         if (avisoEl.parentNode !== destino) { destino.appendChild(avisoEl); }
         avisoEl.textContent = texto;
         avisoEl.classList.add('visivel');
@@ -245,27 +246,46 @@
         });
     }
 
-    /* ---------------- janela do Pix ---------------- */
+    /* ---------------- janelas (Pix e Integrantes) ---------------- */
 
-    function abrirPix() {
-        if (!dialogo) { return; }
-        desenharQr();
-        if (typeof dialogo.showModal === 'function') { dialogo.showModal(); }
-        else { dialogo.setAttribute('open', ''); dialogo.classList.add('sem-suporte'); }
+    var hashDoDialogo = { pixDialogo: '#apoie', integrantesDialogo: '#integrantes' };
+
+    function abrirDialogo(d) {
+        if (!d || d.hasAttribute('open')) { return; }
+        if (typeof d.showModal === 'function') { d.showModal(); }
+        else { d.setAttribute('open', ''); d.classList.add('sem-suporte'); }
     }
 
-    function fecharPix() {
-        if (!dialogo) { return; }
-        if (typeof dialogo.close === 'function') { dialogo.close(); } else { dialogo.removeAttribute('open'); }
-        if (location.hash === '#apoie' && history.replaceState) {
+    function fecharDialogo(d) {
+        if (!d) { return; }
+        if (typeof d.close === 'function') { d.close(); } else { d.removeAttribute('open'); }
+        if (location.hash && location.hash === hashDoDialogo[d.id] && history.replaceState) {
             history.replaceState(null, '', location.pathname + location.search);
         }
     }
 
-    if (dialogo) {
-        each(dialogo.querySelectorAll('.js-pix-fechar'), function (b) { b.addEventListener('click', fecharPix); });
-        dialogo.addEventListener('click', function (ev) { if (ev.target === dialogo) { fecharPix(); } });
+    function abrirPix() {
+        if (!dialogo) { return; }
+        desenharQr();
+        abrirDialogo(dialogo);
     }
+
+    each(document.querySelectorAll('dialog'), function (d) {
+        // toque fora do papel fecha a janela
+        d.addEventListener('click', function (ev) { if (ev.target === d) { fecharDialogo(d); } });
+        each(d.querySelectorAll('.js-fechar-dialogo'), function (b) {
+            b.addEventListener('click', function () { fecharDialogo(d); });
+        });
+    });
+
+    each(document.querySelectorAll('.js-abrir-dialogo'), function (b) {
+        b.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            abrirDialogo(document.getElementById(b.getAttribute('data-dialogo')));
+        });
+    });
+
+    if (location.hash === '#integrantes') { abrirDialogo(document.getElementById('integrantesDialogo')); }
 
     function mostrar(el, texto) {
         if (!el) { return; }

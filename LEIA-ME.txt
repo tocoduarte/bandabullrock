@@ -44,6 +44,15 @@ DOMÍNIO bandabullrock.com.br (no registro.br, editando a zona DNS)
 - Recomendado: verificar o domínio em Settings da conta > Pages > Verified
   domains, para ninguém mais conseguir usá-lo no GitHub.
 
+FOTOS DOS INTEGRANTES
+As fotos atuais são provisórias. Substitua os arquivos em images/integrantes/
+mantendo exatamente os nomes: bimba.jpg, du.jpg, geleia.jpg, mapola.jpg, toco.jpg.
+Ideal: foto quadrada, cerca de 600x600 px, até ~150 KB, rosto centralizado
+(a imagem é recortada em quadrado automaticamente).
+Nomes, funções e descrições ficam no index.html, no bloco "Integrantes".
+O endereço .../#integrantes abre a lista direto (é o que o botão de
+compartilhar envia).
+
 AO ATIVAR O DOMÍNIO
 No index.html, troque https://tocoduarte.github.io/bandabullrock/ por
 https://bandabullrock.com.br/ nas linhas canonical, og:url e og:image

@@ -1,0 +1,54 @@
+﻿BULLROCK - SITE ESTÁTICO (Cloudflare Pages)
+==========================================
+
+O QUE ALTERAR NO DIA A DIA
+Só o arquivo config.json. O index.html não precisa ser tocado.
+
+- pixPeriodos: datas em que o botão Pix aparece (dd/mm/aaaa, início e fim
+  inclusivos, sempre no horário de Brasília). Período inválido é ignorado.
+- pix: preencha UMA das formas:
+    url ............ link de pagamento de um provedor (abre direto)
+    copiaECola ..... código "Pix Copia e Cola" gerado no app do banco
+    chave + favorecido + cidade ... o site gera o Copia e Cola
+                     (valor vazio = a pessoa escolhe; ex.: "25,00" fixa o valor)
+  Sem nada preenchido, o botão não aparece, mesmo dentro das datas.
+  Código Copia e Cola com erro de digitação (CRC inválido) também esconde o botão.
+- lojaUrl: endereço da loja (https://...). Vazio = "Em breve".
+
+Se o config.json ficar com erro de sintaxe (vírgula faltando etc.), a página
+continua funcionando normalmente, apenas sem o Pix.
+
+PUBLICAÇÃO NO GITHUB PAGES (uma vez só)
+1. Crie uma conta gratuita em github.com.
+2. Crie um repositório PÚBLICO (ex.: bullrock-site) e envie todos estes
+   arquivos para a raiz, inclusive CNAME e .nojekyll
+   (botão "Add file" > "Upload files", arrastando o conteúdo do ZIP).
+3. Settings > Pages > Source: "Deploy from a branch" > branch main, pasta / (root).
+4. Settings > Pages > Custom domain: bandabullrock.com.br.
+   Depois que o certificado for emitido, marque "Enforce HTTPS".
+
+DOMÍNIO bandabullrock.com.br (no registro.br, editando a zona DNS)
+- 4 registros A para o domínio principal (bandabullrock.com.br):
+    185.199.108.153
+    185.199.109.153
+    185.199.110.153
+    185.199.111.153
+- 1 registro CNAME: www -> SEU-USUARIO.github.io
+- Não apague registros MX, se o domínio tiver e-mail.
+- Confira esses IPs na documentação do GitHub Pages ("Managing a custom
+  domain") antes de configurar.
+- Recomendado: verificar o domínio em Settings da conta > Pages > Verified
+  domains, para ninguém mais conseguir usá-lo no GitHub.
+
+ALTERAR DATAS OU PIX
+Abra o config.json no github.com (funciona no navegador do celular), toque
+no lápis, edite e clique em "Commit changes". O site atualiza em 1 a 2 minutos.
+
+ATENÇÃO
+O repositório é público (exigência do plano gratuito) e o histórico de
+alterações também. Nunca coloque no repositório nada além do que já aparece
+no site (chave Pix e código Copia e Cola são públicos por natureza).
+
+O arquivo _headers só tem efeito no Cloudflare Pages; no GitHub é ignorado.
+O arquivo web.config só serve para testar no IIS (tipos .webp, .woff2 e .json);
+no GitHub Pages também é ignorado.

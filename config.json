@@ -1,0 +1,22 @@
+{
+  "_ajuda": "Datas no formato dd/mm/aaaa (inicio e fim inclusivos, horario de Brasilia). Pix: use url OU copiaECola OU chave+favorecido+cidade. Valor vazio = a pessoa escolhe. Detalhes no LEIA-ME.txt.",
+
+  "pixPeriodos": [
+    { "inicio": "04/10/2026", "fim": "04/10/2026" },
+    { "inicio": "10/10/2026", "fim": "12/10/2026" },
+    { "inicio": "24/10/2026", "fim": "25/10/2026" }
+  ],
+
+  "pix": {
+    "url": "",
+    "copiaECola": "",
+    "chave": "",
+    "favorecido": "",
+    "cidade": "",
+    "valor": "",
+    "mensagem": "A BullRock agradece seu apoio!",
+    "identificador": "BULLROCK"
+  },
+
+  "lojaUrl": ""
+}

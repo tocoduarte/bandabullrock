@@ -27,22 +27,14 @@ PUBLICAÇÃO NO GITHUB PAGES (uma vez só)
    (botão "Add file" > "Upload files", arrastando o conteúdo do ZIP).
 3. Settings > Pages > Source: "Deploy from a branch" > branch main, pasta / (root).
    O site fica em https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/ para testes.
-4. Para usar o domínio: Settings > Pages > Custom domain: bandabullrock.com.br
-   (o GitHub cria o arquivo CNAME sozinho).
+4. Domínio: Settings > Pages > Custom domain: links.bandabullrock.com.br
+   (o arquivo CNAME já vem neste pacote com esse endereço).
    Depois que o certificado for emitido, marque "Enforce HTTPS".
 
-DOMÍNIO bandabullrock.com.br (no registro.br, editando a zona DNS)
-- 4 registros A para o domínio principal (bandabullrock.com.br):
-    185.199.108.153
-    185.199.109.153
-    185.199.110.153
-    185.199.111.153
-- 1 registro CNAME: www -> SEU-USUARIO.github.io
-- Não apague registros MX, se o domínio tiver e-mail.
-- Confira esses IPs na documentação do GitHub Pages ("Managing a custom
-  domain") antes de configurar.
-- Recomendado: verificar o domínio em Settings da conta > Pages > Verified
-  domains, para ninguém mais conseguir usá-lo no GitHub.
+DOMÍNIO (no registro.br, zona DNS de bandabullrock.com.br)
+- 1 registro CNAME: nome "links" -> tocoduarte.github.io
+- A raiz do domínio e os registros MX (e-mail) não são alterados.
+- Endereço final: https://links.bandabullrock.com.br/
 
 FOTOS DOS INTEGRANTES
 As fotos já estão recortadas e com tratamento padronizado. Para trocar,
@@ -62,11 +54,10 @@ Por isso o index.html carrega css/bullrock.css?v=8 e js/bullrock.js?v=8.
 Sempre que alterar o CSS ou o JS, aumente esse número (v=9, v=10...)
 para todos receberem a versão nova na hora.
 
-AO ATIVAR O DOMÍNIO
-No index.html, troque https://tocoduarte.github.io/bandabullrock/ por
-https://bandabullrock.com.br/ nas linhas canonical, og:url e og:image
-(há um comentário marcando o lugar). Os botões de compartilhar já usam o
-endereço atual sozinhos.
+ENDEREÇO DO SITE
+O index.html já aponta para https://links.bandabullrock.com.br/ nas linhas
+canonical, og:url e og:image. Se um dia mudar o endereço, troque ali e
+também no arquivo CNAME.
 
 ALTERAR DATAS OU PIX
 Abra o config.json no github.com (funciona no navegador do celular), toque
